@@ -1,6 +1,6 @@
 local M = {}
 
-local cnf = require("auto-save.config").opts
+local cnf = require("auto-save.config")
 
 function M.set_of(list)
 	local set = {}
@@ -17,8 +17,8 @@ function M.not_in(var, arr)
 end
 
 function M.do_callback(callback_name)
-	if type(cnf.callbacks[callback_name]) == "function" then
-		cnf.callbacks[callback_name]()
+	if type(cnf.opts.callbacks[callback_name]) == "function" then
+		cnf.opts.callbacks[callback_name]()
 	end
 end
 
